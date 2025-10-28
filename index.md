@@ -1,17 +1,13 @@
 ---
 layout: default
-title: Implementació i Gestió d’un Sistema Ubuntu Linux amb Tecnologia ABP
+title: "Implementació i Gestió d’un Sistema Ubuntu Linux amb Tecnologia ABP"
 ---
 
-Este repositorio contiene el material del curso de Machine Learning desarrollado por Mireia Consarnau.
-
-- Índice y enlaces a las unidades del curso.
-- Recursos en formato PDF, vídeos, y Google Colab.
-- Código y ejemplos prácticos.
+Este repositorio contiene el material del curso desarrollado por widad Gourmaz
 
 ## Licencia
 
-El contenido está bajo licencia [Creative Commons BY-NC-SA 3.0 ES](LICENSE.md).
+El contenido está bajo licencia [Creative Commons BY-NC-SA 4.0 ES](LICENSE.md).
 
 ## Contenido del curso
 Sprint 1: Instal·lació, Configuració Inicial i Programari de Base 
