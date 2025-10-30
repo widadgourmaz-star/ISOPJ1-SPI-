@@ -18,8 +18,10 @@ Passa quan un fitxer no omple completament un bloc.Exctament quan L’espai qued
 ### Fragmentació externaLa 
 fragmentació externa es produeix quan un fitxer queda dividit en diferents parts dins del disc. Això passa quan no hi ha prou espai continu per desar-lo sencer.
 ### Tipus de formateig
-""El formatatge de baix nivell"": crea els sectors físics i elimina totes les dades del disc.
-""El de mig nivell"": esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
+""baix nivell"": crea els sectors físics i elimina totes les dades del disc.
+
+""mig nivell"": esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
+
 ""El d’alt nivell"": crea un sistema de fitxers nou, i només esborra l’estructura, no les dades reals.
 ### Gesió de particions
 Una partició és un tros lògic del disc físic on es pot instal·lar un sistema de fitxers. Permet tenir diferents sistemes operatius o organitzar millor les dades. Es pot gestionar amb eines com GParted, fdisk o parted.
