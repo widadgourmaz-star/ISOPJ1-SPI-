@@ -4,6 +4,9 @@ title: "Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió 
 ---
 
 
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/bf95d2ad-1890-425d-b03d-b1a90e11aad8" />
+
+
 ## Sistemes de fitxers i particions
 ### Mida sector
 El sector és la unitat física mínima del disc on es guarden dades. Normalment té una mida de 512 bytes.
