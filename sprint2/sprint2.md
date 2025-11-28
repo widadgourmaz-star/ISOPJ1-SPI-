@@ -18,17 +18,16 @@ Mida Moderna (Estàndard): 4096 bytes (4 KB), coneguda com a Advanced Format.
 El bloc és la unitat lògica mínima que utilitza el sistema de fitxers per guardar dades. Normalment un bloc ocupa 4096 bytes,
 
 
-
 ### Fragmentació interna 
 Passa quan un fitxer no omple completament un bloc.Exctament quan L’espai queda desaprofitat.
 ### Fragmentació externaLa 
 fragmentació externa es produeix quan un fitxer queda dividit en diferents parts dins del disc. Això passa quan no hi ha prou espai continu per desar-lo sencer.
 ### Tipus de formateig
-####""baix nivell"": crea els sectors físics i elimina totes les dades del disc.
+#### baix nivell: crea els sectors físics i elimina totes les dades del disc.
 
-####""mig nivell"": esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
+#### mig nivell: esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
 
-####""El d’alt nivell"": crea un sistema de fitxers nou, i només esborra l’estructura, no les dades reals.
+#### El d’alt nivell: crea un sistema de fitxers nou, i només esborra l’estructura, no les dades reals.
 ### Gesió de particions
 Una partició és un tros lògic del disc físic on es pot instal·lar un sistema de fitxers. Permet tenir diferents sistemes operatius o organitzar millor les dades. Es pot gestionar amb eines com GParted, fdisk o parted.
 #### Gparted
