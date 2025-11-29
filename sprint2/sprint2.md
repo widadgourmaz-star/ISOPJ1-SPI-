@@ -11,6 +11,7 @@ title: "Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió 
 El sector és la unitat física mínima del disc on es guarden dades. 
 Mida Antiga (Obsoleta): 512 bytes.
 Mida Moderna (Estàndard): 4096 bytes (4 KB), coneguda com a Advanced Format.
+
 <img width="608" height="389" alt="image" src="https://github.com/user-attachments/assets/ad25cdb3-f998-4ad3-9e7e-b4b966d1cd03" />
 
 <img width="823" height="488" alt="image" src="https://github.com/user-attachments/assets/39a7bc4a-f293-4ebb-ac02-d8fa5ef3dbc9" />
@@ -24,18 +25,26 @@ El bloc és la unitat lògica mínima que utilitza el sistema de fitxers per gua
 Passa quan un fitxer no omple completament un bloc.Exctament quan L’espai queda desaprofitat.
 ### Fragmentació externaLa 
 fragmentació externa es produeix quan un fitxer queda dividit en diferents parts dins del disc. Això passa quan no hi ha prou espai continu per desar-lo sencer.
+
 ### Tipus de formateig
+
 #### baix nivell: crea els sectors físics i elimina totes les dades del disc.
 
 #### mig nivell: esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
 
 #### El d’alt nivell: crea un sistema de fitxers nou, i només esborra l’estructura, no les dades reals.
+
 ### Gesió de particions
 Una partició és un tros lògic del disc físic on es pot instal·lar un sistema de fitxers. Permet tenir diferents sistemes operatius o organitzar millor les dades. Es pot gestionar amb eines com GParted, fdisk o parted.
+#### Comandes:
+Amb la comanda "fdisk -l" podem veure l'espai.
+
 
 #### Gparted
 GParted és una eina gràfica per gestionar particions en discs durs. Permet crear, esborrar, redimensionar, moure o formatar particions de manera segura i visual.
+
 <img width="569" height="388" alt="image" src="https://github.com/user-attachments/assets/bded56b9-c7d9-4bb1-afac-f999ca77043d" />
+
 <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/846a8919-4d81-40c9-953c-fb87c8b93d93" />
 
 #### Comandes
