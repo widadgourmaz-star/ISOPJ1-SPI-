@@ -12,7 +12,6 @@ El sector és la unitat física mínima del disc on es guarden dades.
 Mida Antiga (Obsoleta): 512 bytes.
 Mida Moderna (Estàndard): 4096 bytes (4 KB), coneguda com a Advanced Format.
 
-<img width="608" height="389" alt="image" src="https://github.com/user-attachments/assets/ad25cdb3-f998-4ad3-9e7e-b4b966d1cd03" />
 
 <img width="823" height="488" alt="image" src="https://github.com/user-attachments/assets/39a7bc4a-f293-4ebb-ac02-d8fa5ef3dbc9" />
 
@@ -39,13 +38,17 @@ Una partició és un tros lògic del disc físic on es pot instal·lar un sistem
 #### Comandes:
 Amb la comanda "fdisk -l" podem veure l'espai.
 
+<img width="608" height="389" alt="image" src="https://github.com/user-attachments/assets/d3838397-2adf-47f9-8394-8eb7aedf911f" />
 
 #### Gparted
 GParted és una eina gràfica per gestionar particions en discs durs. Permet crear, esborrar, redimensionar, moure o formatar particions de manera segura i visual.
 
 <img width="569" height="388" alt="image" src="https://github.com/user-attachments/assets/bded56b9-c7d9-4bb1-afac-f999ca77043d" />
+Podem realitzr-ho amb la comanada "fdisk"
 
 <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/846a8919-4d81-40c9-953c-fb87c8b93d93" />
+
+<img width="589" height="379" alt="image" src="https://github.com/user-attachments/assets/57acac21-e75c-4652-9859-f9723c9984a8" />
 
 #### Comandes
 ## Gestió de processos
