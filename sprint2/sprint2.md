@@ -27,11 +27,14 @@ fragmentació externa es produeix quan un fitxer queda dividit en diferents part
 
 ### Tipus de formateig
 
-#### baix nivell: crea els sectors físics i elimina totes les dades del disc.
+#### baix nivell
+crea els sectors físics i elimina totes les dades del disc.
 
-#### mig nivell: esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
+#### mig nivell
+esborra el sistema de fitxers i prepara els sectors per tornar-los a utilitzar. 
 
-#### El d’alt nivell: crea un sistema de fitxers nou, i només esborra l’estructura, no les dades reals.
+#### El d’alt nivell
+crea un sistema de fitxers nou, i només esborra l’estructura, no les dades reals.
 
 ### Gesió de particions
 Una partició és un tros lògic del disc físic on es pot instal·lar un sistema de fitxers. Permet tenir diferents sistemes operatius o organitzar millor les dades. Es pot gestionar amb eines com GParted, fdisk o parted.
@@ -42,18 +45,64 @@ Amb la comanda "fdisk -l" podem veure l'espai.
 
 #### Gparted
 GParted és una eina gràfica per gestionar particions en discs durs. Permet crear, esborrar, redimensionar, moure o formatar particions de manera segura i visual.
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/3c228c26-4a44-4ff0-969b-24bf6593f5ce" />
 
-<img width="569" height="388" alt="image" src="https://github.com/user-attachments/assets/bded56b9-c7d9-4bb1-afac-f999ca77043d" />
 Podem realitzr-ho amb la comanada "fdisk"
 
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/f6a8e2b2-ce85-464b-a130-7e91d9697763" />
+
+-Despres creem la particio.
+
 <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/846a8919-4d81-40c9-953c-fb87c8b93d93" />
+Esta creat correctament. 
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/a6a80d82-58ce-4944-89b3-2251cc1645dc" />
 
-<img width="589" height="379" alt="image" src="https://github.com/user-attachments/assets/57acac21-e75c-4652-9859-f9723c9984a8" />
+-Amb la comanda "mkfs.ext4" podem canviar la mida del bloc
 
-#### Comandes
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/03601290-7413-42aa-94ab-5c2c843c3b7a" />
+
+Amb "mkfs.ntfs" per reconeixer-ho windows 
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/b2df858b-8a2b-4b69-b286-4da207c8ce09" />
+I al final vam entrar a GPARTED 
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/905dbf0c-aec6-4019-920c-537d33ab2bcc" />
+
+
 ## Gestió de processos
-La gestió de processos permet controlar tots els programes en execució al sistema. Amb comandes com ps, top, kill o htop podem veure quins processos estan actius, el seu consum de CPU i memòria, i aturar-los si cal. Això ajuda a mantenir el sistema estable i eficient
+és la funció del sistema operatiu que controla tots els programes que s’estan executant, ja siguin visibles per l’usuari o interns del sistema. Un procés és un programa en execució, i el sistema operatiu s'encarrega de crear-lo, administrar-lo, assignar-li recursos com la memòria o el temps de CPU i finalment tancar-lo. La gestió de processos permet supervisar l’activitat del sistema, detectar errors, aturar programes que no responen i garantir que les aplicacions i serveis essencials funcionin de manera correcta i eficient. En sistemes com Linux o Windows, aquesta gestió inclou controlar serveis del sistema, processos en segon pla i processos iniciats pels usuaris.
+## Les eines bàsiques de gestió
+és una part essencial de l’administració d’un sistema operatiu, ja que permet controlar qui pot accedir al sistema i què pot fer. Cada usuari disposa d’un compte propi amb credencials i permisos associats, i els grups serveixen per agrupar usuaris que comparteixen funcions o necessitats similars. Aquesta gestió inclou crear i eliminar comptes, modificar contrasenyes, assignar usuaris a grups i definir quines accions poden dur a terme dins del sistema. Tant en Windows com en Linux existeixen eines específiques per fer aquesta administració, com User Management en Windows o les ordres useradd, usermod i groupadd en Linux.
 ## Gestió d’usuaris i grups i permisos 
+### Els permisos
+són els drets que determinen què pot fer un usuari o grup amb un fitxer o directori. En sistemes Unix/Linux, cada fitxer té tres tipus de permisos principals (lectura, escriptura i execució) i aquests es poden assignar al propietari, al grup i als altres usuaris del sistema. Això garanteix la seguretat i evita que persones no autoritzades modifiquin fitxers importants o executin programes de manera indeguda. En Windows, els permisos funcionen mitjançant llistes de control d’accés (ACL), que permeten definir permisos més detallats per a cada usuari o grup.
+### Tipus d'Usuaris 
+Els tipus d’usuaris varien segons el nivell d’accés. Normalment existeixen els usuaris normals, que poden utilitzar el sistema però no fer canvis crítics; els usuaris avançats, amb alguns privilegis addicionals; i els administradors, que tenen control total sobre el sistema i poden instal·lar programari, modificar configuracions o accedir a qualsevol fitxer. En Linux, l’usuari amb control absolut és l’usuari root, mentre que en Windows és l’usuari Administrator o els membres del grup Administrators.
+### Fitxers importants 
+Quant als fitxers importants, en Linux hi ha directoris essencials com /etc, que conté els fitxers de configuració del sistema i dels serveis; /home, on es guarden els fitxers personals de cada usuari; i /var, que emmagatzema dades variables com registres, bústies de correu o fitxers temporals. En Windows, les carpetes essencials inclouen C:\Windows, que conté els fitxers del sistema operatiu; C:\Program Files, on s’instal·la la major part del programari; i Users, que guarda els perfils i documents dels usuaris. Aquests fitxers i directoris són fonamentals per al funcionament correcte del sistema i la seva gestió adequada és vital per a la seguretat i estabilitat del mateix.
+   En la comanda /etc/passwd cada linia presenta un usauari 
+<img width="778" height="517" alt="image" src="https://github.com/user-attachments/assets/c5db5876-1ebf-4f45-afcb-8201f2b8c847" />
+
+    El fitxer /etc/shadow conté les contrasenyes xifrades dels usuaris i informació relacionada amb la seguretat dels comptes. Només l’usuari root pot llegir-lo, perquè és un fitxer crític per a la seguretat del sistema.
+    
+<img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/8ca47003-53f7-4054-a3f8-3bd7d4440fa2" />
+/etc/group:
+Aquest fitxer és fonamental per entendre la gestió d’usuaris i permisos, ja que els grups permeten organitzar els accessos als fitxers i serveis del sistema d’una manera més flexible i segura.
+
+<img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/fc7db2ce-c492-48bf-a26e-50df90eb67e8" />
+  /etc/geshadow 
+  Conté la informació segura dels grups , cada linia 
+<img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/9b38d1c9-2cf8-41a3-9fb7-69e51030cf52" />
+
+### comandes bàsiques 
+#### adduser 
+<img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/cf48ffcd-e8e2-4d66-add5-f2380057490d" />
+#### Userdel 
+He eliminat el usuari.
+<img width="692" height="143" alt="image" src="https://github.com/user-attachments/assets/0887e205-70f6-4031-9723-65f1e0de05dc" />
+<img width="818" height="560" alt="image" src="https://github.com/user-attachments/assets/aa0143a3-36e1-4c5f-88da-8b01dd2ae403" />
+  Aqui he bloquijat la contrasenya del'usuari i tambe he ficat Usermod -U per desbloquijar ho 
+<img width="818" height="374" alt="image" src="https://github.com/user-attachments/assets/2573d74b-b6f7-460d-a04f-3bd4d75e2863" />
+
+
 ## Copies de seguretat i automatització de tasques 
 Les còpies de seguretat serveixen per protegir les dades davant errors o pèrdues. Es poden fer manualment amb comandes com cp, tar, rsync, o programar-les automàticament amb cron. Automatitzar tasques assegura que es repeteixin regularment sense intervenció humana.
 ## Quotes d`usuari
