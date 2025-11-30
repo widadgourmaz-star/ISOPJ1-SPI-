@@ -62,8 +62,11 @@ Esta creat correctament.
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/03601290-7413-42aa-94ab-5c2c843c3b7a" />
 
 Amb "mkfs.ntfs" per reconeixer-ho windows 
+
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/b2df858b-8a2b-4b69-b286-4da207c8ce09" />
+
 I al final vam entrar a GPARTED 
+
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/905dbf0c-aec6-4019-920c-537d33ab2bcc" />
 
 
@@ -79,27 +82,36 @@ Els tipus d’usuaris varien segons el nivell d’accés. Normalment existeixen 
 ### Fitxers importants 
 Quant als fitxers importants, en Linux hi ha directoris essencials com /etc, que conté els fitxers de configuració del sistema i dels serveis; /home, on es guarden els fitxers personals de cada usuari; i /var, que emmagatzema dades variables com registres, bústies de correu o fitxers temporals. En Windows, les carpetes essencials inclouen C:\Windows, que conté els fitxers del sistema operatiu; C:\Program Files, on s’instal·la la major part del programari; i Users, que guarda els perfils i documents dels usuaris. Aquests fitxers i directoris són fonamentals per al funcionament correcte del sistema i la seva gestió adequada és vital per a la seguretat i estabilitat del mateix.
    En la comanda /etc/passwd cada linia presenta un usauari 
+   
 <img width="778" height="517" alt="image" src="https://github.com/user-attachments/assets/c5db5876-1ebf-4f45-afcb-8201f2b8c847" />
 
     El fitxer /etc/shadow conté les contrasenyes xifrades dels usuaris i informació relacionada amb la seguretat dels comptes. Només l’usuari root pot llegir-lo, perquè és un fitxer crític per a la seguretat del sistema.
     
 <img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/8ca47003-53f7-4054-a3f8-3bd7d4440fa2" />
+
 /etc/group:
 Aquest fitxer és fonamental per entendre la gestió d’usuaris i permisos, ja que els grups permeten organitzar els accessos als fitxers i serveis del sistema d’una manera més flexible i segura.
 
 <img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/fc7db2ce-c492-48bf-a26e-50df90eb67e8" />
+
   /etc/geshadow 
   Conté la informació segura dels grups , cada linia 
+  
 <img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/9b38d1c9-2cf8-41a3-9fb7-69e51030cf52" />
 
 ### comandes bàsiques 
 #### adduser 
+
 <img width="604" height="530" alt="image" src="https://github.com/user-attachments/assets/cf48ffcd-e8e2-4d66-add5-f2380057490d" />
+
 #### Userdel 
 He eliminat el usuari.
+
 <img width="692" height="143" alt="image" src="https://github.com/user-attachments/assets/0887e205-70f6-4031-9723-65f1e0de05dc" />
 <img width="818" height="560" alt="image" src="https://github.com/user-attachments/assets/aa0143a3-36e1-4c5f-88da-8b01dd2ae403" />
+  
   Aqui he bloquijat la contrasenya del'usuari i tambe he ficat Usermod -U per desbloquijar ho 
+  
 <img width="818" height="374" alt="image" src="https://github.com/user-attachments/assets/2573d74b-b6f7-460d-a04f-3bd4d75e2863" />
 
 
