@@ -1,9 +1,7 @@
 ---
 layout: default
-title: "Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers"
----
-<h2 style="color: #ff69b4;">Sistemes de fitxers i particions</h2>
-
+title: "<h2 style="color: #ff69b4;">Sistemes de fitxers i particions</h2>"
+--
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/bf95d2ad-1890-425d-b03d-b1a90e11aad8" />
 
