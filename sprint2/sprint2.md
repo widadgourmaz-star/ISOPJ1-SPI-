@@ -1,7 +1,8 @@
 ---
 layout: default
-title: "<h2 style="color: #ff69b4;">Sistemes de fitxers i particions</h2>"
---
+title: 
+--<img width="598" height="22" alt="image" src="https://github.com/user-attachments/assets/a1895f09-8638-4652-a1b4-c152576d001b" />
+
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/bf95d2ad-1890-425d-b03d-b1a90e11aad8" />
 
