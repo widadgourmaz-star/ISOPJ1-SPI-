@@ -1,5 +1,4 @@
----
-layout: default
+
 title: 
 --<img width="598" height="22" alt="image" src="https://github.com/user-attachments/assets/a1895f09-8638-4652-a1b4-c152576d001b" />
 
