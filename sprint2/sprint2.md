@@ -5,7 +5,7 @@
 
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/bf95d2ad-1890-425d-b03d-b1a90e11aad8" />
 
-## Sistemes de fitxers i particions
+<h1 style="color: pink;"> Sistemes de fitxers i particions </h1>
 ### Mida sector
 El sector és la unitat física mínima del disc on es guarden dades. 
 Mida Antiga (Obsoleta): 512 bytes.
