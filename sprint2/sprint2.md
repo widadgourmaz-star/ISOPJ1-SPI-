@@ -7,6 +7,7 @@
 
 <h1 style="color: pink;"> Sistemes de fitxers i particions </h1>
 ### Mida sector
+
 El sector és la unitat física mínima del disc on es guarden dades. 
 Mida Antiga (Obsoleta): 512 bytes.
 Mida Moderna (Estàndard): 4096 bytes (4 KB), coneguda com a Advanced Format.
@@ -68,14 +69,26 @@ I al final vam entrar a GPARTED
 
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/905dbf0c-aec6-4019-920c-537d33ab2bcc" />
 
+### Muntatge
+primer començem creant una carpeta a la ruta /mnt
+
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/90421a4e-5060-41dd-b3e9-6e12833375e7" />
+
+Primer, utilitzem la comanda mount -t ext4 /dev/sdb1 /mnt/particio1 per muntar el disc temporalment; un cop fet, hi afegim un fitxer nou.
+
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/33989c77-8408-4673-8f49-a580e30cb641" />
+
+<img width="1016" height="350" alt="image" src="https://github.com/user-attachments/assets/6a9398b3-289a-44a2-9416-0e9788c94ff5" />
+
+<img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/d3f1a466-6916-476e-82a3-00bfbb4a9e7e" />
 
 ## Gestió de processos
 és la funció del sistema operatiu que controla tots els programes que s’estan executant, ja siguin visibles per l’usuari o interns del sistema. Un procés és un programa en execució, i el sistema operatiu s'encarrega de crear-lo, administrar-lo, assignar-li recursos com la memòria o el temps de CPU i finalment tancar-lo. La gestió de processos permet supervisar l’activitat del sistema, detectar errors, aturar programes que no responen i garantir que les aplicacions i serveis essencials funcionin de manera correcta i eficient. En sistemes com Linux o Windows, aquesta gestió inclou controlar serveis del sistema, processos en segon pla i processos iniciats pels usuaris.
 ## Les eines bàsiques de gestió
 és una part essencial de l’administració d’un sistema operatiu, ja que permet controlar qui pot accedir al sistema i què pot fer. Cada usuari disposa d’un compte propi amb credencials i permisos associats, i els grups serveixen per agrupar usuaris que comparteixen funcions o necessitats similars. Aquesta gestió inclou crear i eliminar comptes, modificar contrasenyes, assignar usuaris a grups i definir quines accions poden dur a terme dins del sistema. Tant en Windows com en Linux existeixen eines específiques per fer aquesta administració, com User Management en Windows o les ordres useradd, usermod i groupadd en Linux.
+
 ## Gestió d’usuaris i grups i permisos 
-### Els permisos
-són els drets que determinen què pot fer un usuari o grup amb un fitxer o directori. En sistemes Unix/Linux, cada fitxer té tres tipus de permisos principals (lectura, escriptura i execució) i aquests es poden assignar al propietari, al grup i als altres usuaris del sistema. Això garanteix la seguretat i evita que persones no autoritzades modifiquin fitxers importants o executin programes de manera indeguda. En Windows, els permisos funcionen mitjançant llistes de control d’accés (ACL), que permeten definir permisos més detallats per a cada usuari o grup.
+
 ### Tipus d'Usuaris 
 Els tipus d’usuaris varien segons el nivell d’accés. Normalment existeixen els usuaris normals, que poden utilitzar el sistema però no fer canvis crítics; els usuaris avançats, amb alguns privilegis addicionals; i els administradors, que tenen control total sobre el sistema i poden instal·lar programari, modificar configuracions o accedir a qualsevol fitxer. En Linux, l’usuari amb control absolut és l’usuari root, mentre que en Windows és l’usuari Administrator o els membres del grup Administrators.
 ### Fitxers importants 
@@ -113,8 +126,8 @@ He eliminat el usuari.
   
 <img width="818" height="374" alt="image" src="https://github.com/user-attachments/assets/2573d74b-b6f7-460d-a04f-3bd4d75e2863" />
 
-## Permisos
-serveixen per protegir fitxers i controlar l’accés dels usuaris.
+### Els permisos
+són els drets que determinen què pot fer un usuari o grup amb un fitxer o directori. En sistemes Unix/Linux, cada fitxer té tres tipus de permisos principals (lectura, escriptura i execució) i aquests es poden assignar al propietari, al grup i als altres usuaris del sistema. Això garanteix la seguretat i evita que persones no autoritzades modifiquin fitxers importants o executin programes de manera indeguda. En Windows, els permisos funcionen mitjançant llistes de control d’accés (ACL), que permeten definir permisos més detallats per a cada usuari o grup.
 
 <img width="550" height="243" alt="image" src="https://github.com/user-attachments/assets/9347fb71-705d-4c22-9be7-10290e421ce0" />
 
