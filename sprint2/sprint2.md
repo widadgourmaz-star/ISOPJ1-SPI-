@@ -124,8 +124,11 @@ w = write (escriure)
 x = execute (executar)
 
 <img width="580" height="131" alt="image" src="https://github.com/user-attachments/assets/c30c79fb-21e1-4b55-a53d-2a6d0b1791db" />
+
 Podem mirar la jerarquia dels permisos
+
 <img width="557" height="114" alt="image" src="https://github.com/user-attachments/assets/6b937e9b-359d-4e96-8f8c-38e9f8461613" />
+
 1- He utilitzat la comanda adduser cire paloma per crear l'usuari cire i, al mateix temps, vincular-lo al grup paloma.
 2-Per protegir la carpeta i definir qui pot accedir-hi, he configurat els permisos amb la comanda chmod 750 palomes/. Amb aquesta configuració he establert el següent:
 7 (Propietari): Jo, com a administrador o propietari, tinc control total (llegir, escriure i executar).
