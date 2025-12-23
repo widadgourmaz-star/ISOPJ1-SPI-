@@ -113,6 +113,29 @@ He eliminat el usuari.
   
 <img width="818" height="374" alt="image" src="https://github.com/user-attachments/assets/2573d74b-b6f7-460d-a04f-3bd4d75e2863" />
 
+## Permisos
+serveixen per protegir fitxers i controlar l’accés dels usuaris.
+
+<img width="550" height="243" alt="image" src="https://github.com/user-attachments/assets/9347fb71-705d-4c22-9be7-10290e421ce0" />
+
+Significat:
+r = read (llegir)
+w = write (escriure)
+x = execute (executar)
+
+<img width="580" height="131" alt="image" src="https://github.com/user-attachments/assets/c30c79fb-21e1-4b55-a53d-2a6d0b1791db" />
+Podem mirar la jerarquia dels permisos
+<img width="557" height="114" alt="image" src="https://github.com/user-attachments/assets/6b937e9b-359d-4e96-8f8c-38e9f8461613" />
+1- He utilitzat la comanda adduser cire paloma per crear l'usuari cire i, al mateix temps, vincular-lo al grup paloma.
+2-Per protegir la carpeta i definir qui pot accedir-hi, he configurat els permisos amb la comanda chmod 750 palomes/. Amb aquesta configuració he establert el següent:
+7 (Propietari): Jo, com a administrador o propietari, tinc control total (llegir, escriure i executar).
+5 (Grup): Els membres del grup paloma (com l'usuari cire) poden veure els fitxers i entrar a la carpeta, però n
+Finalment, he tornat a executar ls -l | grep palomes per comprovar que els canvis s'havien aplicat. He pogut observar que la carpeta ja apareixia amb la data de creació i els permisos actualitzats correctament al directori /var.o poden esborrar ni modificar res.
+
+ <img width="646" height="171" alt="image" src="https://github.com/user-attachments/assets/e278c3ef-4d32-42e3-be24-f2f06c3d7534" />
+
+
+
 
 ## Copies de seguretat i automatització de tasques 
 Les còpies de seguretat serveixen per protegir les dades davant errors o pèrdues. Es poden fer manualment amb comandes com cp, tar, rsync, o programar-les automàticament amb cron. Automatitzar tasques assegura que es repeteixin regularment sense intervenció humana.
