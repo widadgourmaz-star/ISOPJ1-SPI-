@@ -45,6 +45,7 @@ Amb la comanda "fdisk -l" podem veure l'espai.
 
 #### Gparted
 GParted és una eina gràfica per gestionar particions en discs durs. Permet crear, esborrar, redimensionar, moure o formatar particions de manera segura i visual.
+
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/3c228c26-4a44-4ff0-969b-24bf6593f5ce" />
 
 Podem realitzr-ho amb la comanada "fdisk"
@@ -54,7 +55,9 @@ Podem realitzr-ho amb la comanada "fdisk"
 -Despres creem la particio.
 
 <img width="600" height="392" alt="image" src="https://github.com/user-attachments/assets/846a8919-4d81-40c9-953c-fb87c8b93d93" />
+
 Esta creat correctament. 
+
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/a6a80d82-58ce-4944-89b3-2251cc1645dc" />
 
 -Amb la comanda "mkfs.ext4" podem canviar la mida del bloc
@@ -78,8 +81,6 @@ Primer, utilitzem la comanda mount -t ext4 /dev/sdb1 /mnt/particio1 per muntar e
 
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/33989c77-8408-4673-8f49-a580e30cb641" />
 
-<img width="1016" height="350" alt="image" src="https://github.com/user-attachments/assets/6a9398b3-289a-44a2-9416-0e9788c94ff5" />
-
 <img width="835" height="536" alt="image" src="https://github.com/user-attachments/assets/d3f1a466-6916-476e-82a3-00bfbb4a9e7e" />
 
 ## Gestió de processos
@@ -93,9 +94,26 @@ Primer, utilitzem la comanda mount -t ext4 /dev/sdb1 /mnt/particio1 per muntar e
 Els tipus d’usuaris varien segons el nivell d’accés. Normalment existeixen els usuaris normals, que poden utilitzar el sistema però no fer canvis crítics; els usuaris avançats, amb alguns privilegis addicionals; i els administradors, que tenen control total sobre el sistema i poden instal·lar programari, modificar configuracions o accedir a qualsevol fitxer. En Linux, l’usuari amb control absolut és l’usuari root, mentre que en Windows és l’usuari Administrator o els membres del grup Administrators.
 ### Fitxers importants 
 Quant als fitxers importants, en Linux hi ha directoris essencials com /etc, que conté els fitxers de configuració del sistema i dels serveis; /home, on es guarden els fitxers personals de cada usuari; i /var, que emmagatzema dades variables com registres, bústies de correu o fitxers temporals. En Windows, les carpetes essencials inclouen C:\Windows, que conté els fitxers del sistema operatiu; C:\Program Files, on s’instal·la la major part del programari; i Users, que guarda els perfils i documents dels usuaris. Aquests fitxers i directoris són fonamentals per al funcionament correcte del sistema i la seva gestió adequada és vital per a la seguretat i estabilitat del mateix.
+   
    En la comanda /etc/passwd cada linia presenta un usauari 
    
 <img width="778" height="517" alt="image" src="https://github.com/user-attachments/assets/c5db5876-1ebf-4f45-afcb-8201f2b8c847" />
+
+El fitxer de configuració d'usuaris utilitza una estructura de set camps diferenciats per cada línia, on els dos punts (:) actuen com a separadors entre cada dada:
+
+1.Identificador (nom_usuari): És l'etiqueta única que el sistema utilitza per reconèixer cada compte, com root o daemon. És el nom que escrivim per fer el login.
+
+2.Referència de la contrasenya (x): Normalment hi trobem una x, que indica que la clau no és visible aquí sinó que està xifrada al fitxer /etc/shadow. Si el camp mostra un asterisc (*) o una exclamació (!), significa que el compte no pot entrar al sistema.
+
+3.Codi d'usuari (UID): És el valor numèric que el sistema assigna a cada perfil. Per exemple, el número 0 sempre identifica l'administrador principal o root.
+
+4.Codi de grup (GID): El número que vincula l'usuari amb el seu grup de treball principal dins del sistema.
+
+5.Informació addicional (GECOS): Un espai dedicat a descripcions extres, com el nom real de la persona o el seu departament.
+
+6.Ruta d'inici (directori_home): Defineix la ubicació de la carpeta personal on l'usuari té els seus documents (per al root sol ser /root).
+
+7.Terminal de treball (shell): Especifica quin programa de comandes s'inicia per defecte. Si apareix nologin o false, el compte està restringit i no pot obrir una sessió interactiva.
 
     El fitxer /etc/shadow conté les contrasenyes xifrades dels usuaris i informació relacionada amb la seguretat dels comptes. Només l’usuari root pot llegir-lo, perquè és un fitxer crític per a la seguretat del sistema.
     
