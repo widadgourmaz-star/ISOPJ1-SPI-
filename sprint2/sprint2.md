@@ -161,6 +161,7 @@ Podem mirar la jerarquia dels permisos
 <img width="557" height="114" alt="image" src="https://github.com/user-attachments/assets/6b937e9b-359d-4e96-8f8c-38e9f8461613" />
 
 1- He utilitzat la comanda adduser cire paloma per crear l'usuari cire i, al mateix temps, vincular-lo al grup paloma.
+
 2-Per protegir la carpeta i definir qui pot accedir-hi, he configurat els permisos amb la comanda chmod 750 palomes/. Amb aquesta configuració he establert el següent:
 7 (Propietari): Jo, com a administrador o propietari, tinc control total (llegir, escriure i executar).
 5 (Grup): Els membres del grup paloma (com l'usuari cire) poden veure els fitxers i entrar a la carpeta, però n
@@ -168,11 +169,294 @@ Finalment, he tornat a executar ls -l | grep palomes per comprovar que els canvi
 
  <img width="646" height="171" alt="image" src="https://github.com/user-attachments/assets/e278c3ef-4d32-42e3-be24-f2f06c3d7534" />
 
+## Importància de les ACL a Ubuntu
+ Les ACL a Ubuntu són importants perquè permeten controlar millor qui pot accedir als fitxers i carpetes.
+Normalment, Ubuntu només permet definir permisos per a un usuari, un grup i la resta d’usuaris, cosa que és limitada. Amb les ACL pots donar permisos a diversos usuaris i grups diferents sobre el mateix recurs, sense haver de crear grups nous.
+Això fa que la gestió dels permisos sigui més flexible, sobretot en sistemes amb molts usuaris, com servidors compartits o entorns d’empresa, on cada persona necessita accessos diferents.
+A més, les ACL milloren la seguretat, perquè permeten aplicar el principi de mínim privilegi: cada usuari només té els permisos que realment necessita. També faciliten saber qui pot accedir a què, cosa molt útil per controlar i auditar els accessos.
+
+<img width="727" height="222" alt="image" src="https://github.com/user-attachments/assets/6e4fe4a7-cb9c-49b0-a30c-b668d4f9e26b" />
+
+<img width="727" height="222" alt="image" src="https://github.com/user-attachments/assets/b41694e5-c8e6-4294-880f-d9c31981e095" />
+
+Primer, he hagut d'instal·lar les eines necessàries. Al principi la comanda setfacl no funcionava perquè no tenia el paquet acl, així que l'he instal·lat amb apt install.
+
+Després, he preparat el fitxer de prova. He creat un fitxer anomenat numeros amb la comanda touch i li he donat permisos totals amb chmod 777 per comprovar que tothom hi tenia accés inicialment.
+
+A continuació, he creat un usuari nou anomenat segon amb la comanda adduser per poder fer la prova de permisos.
+
+El pas més important ha estat fer servir les ACL (Llistes de Control d'Accés). He fet servir la comanda setfacl -m user:segon:--- numeros. Amb això, he aconseguit que, encara que el fitxer sigui obert per a tothom, l'usuari 'segon' no hi pugui fer absolutament res.
+
+Finalment, he passat la comanda getfacl numeros per ensenyar que la configuració s'ha guardat bé. Si et fixes a la pantalla, ara surt la línia user:segon:---, que confirma que aquest usuari no té permisos.
+## Umask
+umask (user mask) és un valor del sistema que s'utilitza per establir els permisos per defecte que tindran els fitxers i les carpetes quan els creïs de nou.
+
+<img width="480" height="270" alt="image" src="https://github.com/user-attachments/assets/5c9cd503-fd7e-4166-ada6-da07550d93e7" />
+
+En aquesta part, he practicat amb el umask. He canviat el valor per defecte a 0004 per bloquejar el permís de lectura als usuaris que no siguin propietaris ni del grup. Després, he creat una carpeta i un fitxer i he demostrat amb ls -l que el sistema els ha assignat permisos automàticament restant aquest '0004', deixant el grup d'altres usuaris sense capacitat de llegir el contingut
+
+<img width="833" height="465" alt="image" src="https://github.com/user-attachments/assets/83910a89-a7e4-4b0d-b297-f06a3a219980" />
+
+<img width="815" height="539" alt="image" src="https://github.com/user-attachments/assets/9a27628b-be27-4e03-ab0f-543eb888af6f" />
+
+## Gestió de processos
+
+Els processos són els programes que s’estan executant en un sistema en un moment determinat. Cada procés té un PID, que és un número que el identifica de manera única, i està associat a un usuari que n’és el propietari. A més, un procés pot trobar-se en diferents situacions, com ara executant-se, esperant recursos o aturat.
+El sistema operatiu s’encarrega de gestionar tots aquests processos i de distribuir el temps de CPU entre ells perquè funcionin de manera eficient.
+Per administrar els processos, disposem de diverses eines bàsiques:
+
+-ps, top i htop permeten consultar quins processos estan actius i veure informació com l’ús de CPU o memòria.
+
+-kill i pkill serveixen per finalitzar processos, ja sigui indicant el seu PID o el seu nom.
+
+-nice i renice permeten modificar la prioritat d’execució d’un procés, donant-li més o menys preferència.
+
+-systemctl i service s’utilitzen per gestionar serveis del sistema, tot i que no s’entrarà en detall en aquest apartat.
+### Ús de pstree
+-p
+Mostra informació d’un procés concret, indicant el seu PID.
+👉 Serveix quan vols veure només un procés específic.
+
+-u
+Mostra els processos d’un usuari determinat.
+👉 Útil per saber quins programes està executant un usuari.
+
+-h
+Amaga la capçalera de la sortida.
+👉 Va bé quan vols un resultat més net o per usar-lo en scripts.
+
+-n
+Ordena o mostra la informació utilitzant valors numèrics en lloc de noms (per exemple, UID en comptes de nom d’usuari).
+👉 Facilita comparacions i ordenacions.
+
+-a
+Mostra tots els processos, inclosos els d’altres usuaris.
+👉 Permet tenir una visió global del sistema.
+
+<img width="787" height="531" alt="image" src="https://github.com/user-attachments/assets/08bc92e0-7855-4a16-9c62-881ca354406a" />
+
+he provat en root tambe 
+
+<img width="787" height="531" alt="image" src="https://github.com/user-attachments/assets/abc3c6ee-3dcc-44d9-ac39-6353f48c6b65" />
+
+he provat la comanda -h per filtrar resultat 
+
+<img width="809" height="432" alt="image" src="https://github.com/user-attachments/assets/84a44638-3cca-41a9-a7d9-222dffac2d11" />
+
+La comanda ps aux s’utilitza per veure tots els processos actius al sistema, amb informació detallada sobre cada un. Explicat pas a pas:
+
+ps → mostra processos.
+
+a → inclou processos d’altres usuaris, no només els del teu compte.
+
+u → mostra informació de l’usuari que és propietari del procés i detalls com l’ús de CPU i memòria.
+
+x → mostra processos que no estan associats a cap terminal (com els serveis que s’executen en segon pla).
+
+<img width="716" height="536" alt="image" src="https://github.com/user-attachments/assets/e63b1110-c805-4af0-bbf0-6dc72e404c7d" />
+
+La comanda grep usuari s’utilitza per filtrar informació i mostrar només les línies que contenen la paraula “usuari” (o el nom real d’un usuari).
+
+<img width="720" height="124" alt="image" src="https://github.com/user-attachments/assets/f2ed729d-d7af-4d08-b545-d796a35dd8bf" />
+
+aqui vaig fer un example per matar un proces utilitzant la comanda kill 
+
+<img width="709" height="257" alt="image" src="https://github.com/user-attachments/assets/0e8534f7-d9b1-418a-865d-a8b29dfe426f" />
+
+i tenim tambe la comanda top serveix per monitoritzar en temps real els processos del sistema i veure com utilitzen els recursos.
+Amb top pots:
+
+Veure quins processos consumeixen més CPU i memòria.
+
+Observar informació com PID, usuari propietari, estat del procés, temps d’execució i ús de recursos.
+
+Ordenar processos segons l’ús de CPU, memòria o altres criteris.
+
+Interactuar amb els processos, per exemple, aturar-los o canviar la seva prioritat mentre la comanda està en execució.
+
+<img width="809" height="432" alt="image" src="https://github.com/user-attachments/assets/73443f1a-79d6-4659-bcad-129393da44f2" />
+
+<img width="809" height="432" alt="image" src="https://github.com/user-attachments/assets/39fce04f-af11-48c3-9586-4469adef1201" />
+
+Amb la comanda renice serveix per canviar la prioritat d’execució d’un procés ja en funcionament.
+
+<img width="531" height="83" alt="image" src="https://github.com/user-attachments/assets/f3c7d70f-aa9e-4cea-906c-c653b273d7e9" />
+
+## Còpies de seguretat i automatització de tasques
+Còpies de seguretat
+
+Una còpia de seguretat és una duplicació de les teves dades que serveix per recuperar informació si es perd, es trenca, hi ha un error humà, un virus o qualsevol altre problema. Les còpies s’han de guardar en un lloc separat de les dades originals, com un altre disc, un servidor o al núvol.
+
+Normalment, les còpies de seguretat segueixen unes regles o polítiques:
+
+Quant temps es conserven
+
+Quantes versions es guarden
+
+Proves de restauració per assegurar que les dades es poden recuperar
+Tipus principals de còpia de seguretat
+
+1. Còpia completa
+
+Guarda totes les dades cada vegada que es fa.
+
+És la més segura i fàcil de restaurar, però també la més lenta i que ocupa més espai.
+
+Exemple: si fas còpia completa dilluns, dimarts i dimecres, només necessites la còpia de dimecres per recuperar un fitxer perdut dijous.
+
+2. Còpia incremental
+
+Guarda només els canvis fets des de l’última còpia, sigui completa o incremental.
+
+És ràpida i ocupa poc espai, però per restaurar cal la còpia completa inicial i totes les incrementals posteriors.
+
+Exemple: còpia completa dilluns, incremental dimarts i dimecres → per recuperar dijous, necessites la de dilluns + dimarts + dimecres.
+
+3. Còpia diferencial
+
+Guarda els canvis fets des de l’última còpia completa.
+
+És més ràpida que la còpia completa i ocupa menys espai que repetir una completa cada dia.
+
+Exemple: còpia completa dilluns, diferencial dimarts i dimecres → per recuperar dijous només necessites la còpia completa de dilluns i l’última diferencial (dimecres).
+RAID i emmagatzematge
+
+Els sistemes RAID combinen diversos discs per millorar rendiment i seguretat, depenent del tipus:
+
+RAID 0: combina discs per més velocitat i capacitat, sense protecció. Si un falla, es perden totes les dades.
+
+RAID 1: còpia mirall dels discs. Si un falla, l’altre segueix funcionant.
+
+RAID 5/6: reparteix dades i paritat entre discs, equilibrant velocitat i seguretat.
+
+RAID 10: combina velocitat del RAID 0 amb seguretat del RAID 1.
+
+Imatge de disc
+
+Una imatge de disc és una còpia exacta d’un disc o partició, incloent sistema operatiu, programes i dades.
+
+Serveix per clonar equips o restaurar tot el sistema ràpidament.
+
+Requereix molt espai i temps, però permet restaurar un ordinador complet molt fàcilment.
+
+Snapshot
+
+Un snapshot és una captura ràpida de l’estat del sistema o disc en un moment concret.
+
+Guarda només els canvis a partir d’aquell moment, així és molt ràpid de crear.
+
+Serveix per tornar enrere ràpidament o fer proves.
+
+Resum
+
+Còpia de seguretat: protegeix les dades guardant-les en un lloc segur.
+
+Imatge de disc: copia tot el sistema exactament com està en un moment determinat.
+
+Snapshot: permet tornar enrere ràpid, però no protegeix contra fallades del mateix disc.
+
+Millor combinació: snapshots per recuperacions ràpides + còpies externes per desastres.
+
+Eines per fer còpies
+
+cp: còpia simple de fitxers localment. Molt fàcil, però no optimitza res.
+
+rsync: còpia intel·ligent que només transfereix fitxers modificats. Pot ser local o remot via SSH.
+
+dd: clona discs o particions sector a sector. Tot i que és complet, no és intel·ligent (copia tot encara que no hagi canviat).
+### cp (Copy)
+
+Funció: Copia fitxers o directoris d’una ubicació a una altra.
+
+Característiques principals:
+
+És molt senzilla d’utilitzar.
+
+Només transfereix fitxers de manera directa, sense comprovar si han canviat o optimitzar l’operació.
+
+És útil per fer copiats ràpids locals, però en projectes grans o amb molts fitxers no és eficient.
+
+Exemples:
+
+<img width="714" height="373" alt="image" src="https://github.com/user-attachments/assets/4e6cbfee-9db1-4db5-815d-2900d4077b94" />
+
+Avantatges:
+
+Molt ràpid i fàcil de recordar.
+
+No necessita configuració.
+
+Desavantatges:
+
+No detecta fitxers modificats, sempre copia tot.
+
+No sincronitza directoris.
+
+Només funciona localment (a menys d’utilitzar muntatges com NFS o Samba).
+
+### rsync (Remote Sync)
+
+Funció: Sincronitza fitxers i directoris intel·ligentment, transferint només els canvis.
+
+Característiques principals:
+
+Detecta fitxers nous, modificats o eliminats i només copia els necessaris.
+
+Pot fer còpies locals o remotes via SSH.
+
+Permet compressió, preservació de permisos, propietari, dates i enllaços simbòlics.
 
 
+Exemples:
 
-## Copies de seguretat i automatització de tasques 
-Les còpies de seguretat serveixen per protegir les dades davant errors o pèrdues. Es poden fer manualment amb comandes com cp, tar, rsync, o programar-les automàticament amb cron. Automatitzar tasques assegura que es repeteixin regularment sense intervenció humana.
+<img width="718" height="332" alt="image" src="https://github.com/user-attachments/assets/7558dcbb-6084-441e-9cfc-59c743af5ae5" />
+
+
+Molt eficient en transferència de dades grans.
+
+Manté permisos, propietats i dates correctes.
+
+Ideal per còpies de seguretat incrementals.
+
+Desavantatges:
+
+Més complex que cp per als principiants.
+
+Requereix una mica més de temps per calcular què s’ha modificat (tot i que compensa en còpies grans).
+
+### dd (Data Duplicator / Disk Dump)
+
+Funció: Clona discs o particions sector a sector.
+
+Característiques principals:
+
+Copia tot exactament, incloent sistemes de fitxers, sectors buits i espais no utilitzats.
+
+Molt útil per crear imatges completes de discs, clonar discs senceres o fer backups de baix nivell.
+
+Exemples:
+
+<img width="724" height="457" alt="image" src="https://github.com/user-attachments/assets/fe835e20-a88e-4790-8bbc-cb3d5230937a" />
+
+<img width="724" height="457" alt="image" src="https://github.com/user-attachments/assets/73842ad8-6615-4699-9a66-c928897251cf" />
+
+if= → input file (fitxer o dispositiu d’entrada)
+of= → output file (fitxer o dispositiu de sortida)
+bs= → block size, mida dels blocs que copia alhora
+
+Avantatges:
+
+Còpia exacta de tot, incloent sectors sense format.
+
+Ideal per recuperacions forenses o migració de discs.
+
+Desavantatges:
+
+No és intel·ligent: sempre copia tot, encara que no hagi canviat res.
+
+Requereix molt espai i temps.
+
+Pot ser perillós si s’escriu sobre el dispositiu equivocat (pot esborrar dades).
 ## Quotes d`usuari
 Les quotes d’usuari limiten l’espai de disc que pot utilitzar cada usuari. Això evita que un sol usuari ocupi tot l’espai disponible. Es configuren amb eines com edquota, quotaon i repquota dins de sistemes de fitxers compatibles.
 
