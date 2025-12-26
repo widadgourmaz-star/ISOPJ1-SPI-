@@ -177,7 +177,7 @@ A més, les ACL milloren la seguretat, perquè permeten aplicar el principi de m
 
 <img width="727" height="222" alt="image" src="https://github.com/user-attachments/assets/6e4fe4a7-cb9c-49b0-a30c-b668d4f9e26b" />
 
-<img width="727" height="222" alt="image" src="https://github.com/user-attachments/assets/b41694e5-c8e6-4294-880f-d9c31981e095" />
+<img width="727" height="222" alt="image" src="https://github.com/user-attachments/assets/c43ba148-0deb-40e2-beb5-8f4b6eb0be6d" />
 
 Primer, he hagut d'instal·lar les eines necessàries. Al principi la comanda setfacl no funcionava perquè no tenia el paquet acl, així que l'he instal·lat amb apt install.
 
@@ -457,8 +457,103 @@ No és intel·ligent: sempre copia tot, encara que no hagi canviat res.
 Requereix molt espai i temps.
 
 Pot ser perillós si s’escriu sobre el dispositiu equivocat (pot esborrar dades).
+
+## Automatizació de tasques
+L’automatització de tasques és el procés de fer que el sistema executi accions automàticament, sense que un usuari hagi d’intervenir manualment cada vegada.
+En altres paraules, en lloc de fer repetidament les mateixes coses a mà, es creen scripts o regles perquè l’ordinador ho faci sol. Això és molt útil per estalviar temps, evitar errors humans i mantenir el sistema ordenat.
+### Cron
+Cron s’utilitza per programar tasques que s’han d’executar en hores i dates concretes.
+Característiques principals:
+
+Funciona molt bé en servidors que estan sempre encesos.
+
+Les tasques es defineixen en un fitxer anomenat crontab.
+
+Si l’ordinador està apagat en el moment programat, la tasca no s’executa.
+
+<img width="724" height="457" alt="image" src="https://github.com/user-attachments/assets/bf7566b4-0c8d-4ebf-a5db-4b2f621baee0" />
+
+### Anacron
+
+Anacron està pensat per a equips que no estan sempre encesos, com ordinadors personals o portàtils.
+
+Característiques principals:
+
+Executa tasques amb una periodicitat (diària, setmanal, mensual).
+
+Si l’ordinador estava apagat, la tasca s’executa quan es torna a encendre.
+
+No permet especificar una hora exacta, només intervals de temps.
+### Exemples de cron i Anacron 
+Aqui podem veure tots els binaris del cron.
+
+<img width="600" height="160" alt="image" src="https://github.com/user-attachments/assets/01c4f1ce-b112-4051-8337-006489c80bd2" />
+
+Aquest fitxer correspon a Anacron i està emmagatzemat en aquesta ruta.
+
+<img width="726" height="277" alt="image" src="https://github.com/user-attachments/assets/883de6c3-f7d7-4287-9ebe-1876f8211bc7" />
+
+S’ha desenvolupat un script on s’ha implementat el codi que es mostra a continuació.
+
+<img width="726" height="277" alt="image" src="https://github.com/user-attachments/assets/b144fe2e-b4b7-4759-aa24-9f1cd9e46ef3" />
+
+ Configuro els permisos necessaris per permetre l’execució del fitxer.
+ 
+<img width="642" height="418" alt="image" src="https://github.com/user-attachments/assets/977815c5-d438-49fa-aba8-2f057dc98fab" />
+
+Creo dues imatges dins de Documents que seran els fitxers a duplicar.
+
+<img width="574" height="142" alt="image" src="https://github.com/user-attachments/assets/dea8ce56-b828-4224-bdf4-a22051046d16" />
+
+al final he provat si esta 
+
+<img width="703" height="111" alt="image" src="https://github.com/user-attachments/assets/728ed91f-2e4f-4d63-83b6-577c9b4f75c5" />
+
+
 ## Quotes d`usuari
-Les quotes d’usuari limiten l’espai de disc que pot utilitzar cada usuari. Això evita que un sol usuari ocupi tot l’espai disponible. Es configuren amb eines com edquota, quotaon i repquota dins de sistemes de fitxers compatibles.
+Les quotes d’usuari limiten l’espai de disc que pot utilitzar cada usuari. Això evita que un sol usuari ocupi tot l’espai disponible. Es configuren amb eines com edquota, quotaon i  repquota dins de sistemes de fitxers compatibles.
+primer he instalat el paquet quota
+
+<img width="729" height="457" alt="image" src="https://github.com/user-attachments/assets/66008df0-a6a9-4684-bd87-f0082326e415" />
+
+Veure o editar quotes d’un usuari:
+edquota -u usuari
+Permet consultar i modificar els límits d’espai d’un usuari concret.
+
+Establir quotes per un usuari:
+setquota -u usuari bloc_max bloc_soft inode_max inode_soft /punt_de_muntatge
+Defineix límits màxims i suau d’espai i inodes en una partició específica.
+
+Informe de quotes de tots els usuaris:
+
+repquota /dev/sdc1
+Mostra l’ús d’espai i inodes de tots els usuaris en una partició.
+Activar i desactivar quotes:
+quotaon /mnt/dades     # activa les quotes
+quotaoff /mnt/dades    # desactiva les quotes
+
+Crear fitxers necessaris per a les quotes:
+quotacheck -cug /mnt/dades
+Comprova i genera els fitxers de quotes per a usuaris i grups. Si no tens el paquet instal·lat, fes:
+
+apt install quota
+Crear fitxers de prova:
+dd if=/dev/zero of=nom_arxiu bs=1k count=800
+Crea un fitxer de 800 KB ple de zeros, útil per provar l’aplicació de quotes.
+Definir el temps de gràcia per un usuari:
+setquota -T -u usuari temps_blocs temps_inodes /mnt/dades
+Estableix el període en què l’usuari pot excedir la quota abans de rebre penalitzacions.
+Modificar el temps de gràcia global:
+setquota -t
+Permet ajustar els valors de temps de gràcia per tots els usuaris del sistema.
+
+He accedit al directori del sistema mitjançant la comanda cd /mnt per situar-me a la ruta desitjada. Un cop allà, he creat la carpeta anomenada "dades" amb la comanda mkdir dades i he llistat el contingut amb ls per confirmar que s'havia generat correctament.
+
+<img width="696" height="147" alt="image" src="https://github.com/user-attachments/assets/834096ea-5914-4f01-9575-0077580aaace" />
+
+<img width="774" height="411" alt="image" src="https://github.com/user-attachments/assets/0ef2decc-df5d-4ca6-97f7-9463b0551ffb" />
+Aqui esta pero no esta muntat be 
+<img width="789" height="220" alt="image" src="https://github.com/user-attachments/assets/a039fc09-6775-489c-b768-eb480b6fc94a" />
 
 
 
