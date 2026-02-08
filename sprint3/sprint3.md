@@ -25,7 +25,9 @@ despres passem a la gestió de la configuració
 
 <img width="708" height="518" alt="image" src="https://github.com/user-attachments/assets/96f53db8-5f42-4c50-9c74-21e168f8676a" />
 
+
 <img width="551" height="412" alt="image" src="https://github.com/user-attachments/assets/0bef92fa-66a4-4468-b32a-bae8edea0785" />
+
 
 <img width="597" height="433" alt="image" src="https://github.com/user-attachments/assets/7fb16774-491d-431d-be52-6c4ae6b4da7b" />
 
@@ -44,7 +46,12 @@ Samba és un programari lliure que permet compartir fitxers i recursos en una xa
 
 Samba permet gestionar usuaris, contrasenyes i permisos, i és molt utilitzat en entorns educatius i empresarials amb sistemes operatius mixtos.
 primer instalem samba 
+
 <img width="586" height="318" alt="image" src="https://github.com/user-attachments/assets/35dd778c-de56-4b53-900e-a3b3748f85de" />
 
-<img width="586" height="318" alt="image" src="https://github.com/user-attachments/assets/187f86a4-9ef2-4a3a-986f-1af8f7b8d634" />
+Comprovem la instal·lació , 
+<img width="589" height="132" alt="image" src="https://github.com/user-attachments/assets/1c82f5e6-de91-4507-938f-5d52d9171305" />
+
+
+<img width="596" height="355" alt="image" src="https://github.com/user-attachments/assets/e21b003d-d7ac-42cb-9761-7c5837d496c2" />
 
