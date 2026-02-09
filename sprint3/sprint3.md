@@ -12,11 +12,13 @@ he instalat el paquet ldap-utils i slapd.
 
 <img width="565" height="53" alt="image" src="https://github.com/user-attachments/assets/bef987f8-750c-4905-93b3-d1f2ed08d380" />
 
+
 <img width="716" height="276" alt="image" src="https://github.com/user-attachments/assets/4c2463ac-66e3-4426-8e69-535812736232" />
 
 He configurat la IP a estatica en el servidor, perque sempre hem de tenir la IP fixa
 
 <img width="707" height="366" alt="image" src="https://github.com/user-attachments/assets/3a3fdf38-8e33-4750-ac93-5f55bc2038cf" />
+
 
 <img width="585" height="459" alt="image" src="https://github.com/user-attachments/assets/f6035c64-5b36-4edb-acc9-9187f7fcedf6" />
 
@@ -62,13 +64,18 @@ Definim la configuració global i els recursos compartits, assegurant els permis
 
 <img width="595" height="329" alt="image" src="https://github.com/user-attachments/assets/dce8e1fd-5720-4402-a84a-65ae4c74512d" />
 
+
 <img width="596" height="326" alt="image" src="https://github.com/user-attachments/assets/2b24effd-8370-4685-958d-31b1b43e2ae7" />
+
 
 <img width="600" height="409" alt="image" src="https://github.com/user-attachments/assets/619f52cf-2e51-46ee-84fe-411776ed4fb9" />
 
+
 <img width="838" height="513" alt="image" src="https://github.com/user-attachments/assets/a480d13c-759a-4011-a223-455cddc17560" />
 
+
 <img width="643" height="512" alt="image" src="https://github.com/user-attachments/assets/304098e7-c25a-4379-9c78-18583a9ed15f" />
+
 
 <img width="851" height="469" alt="image" src="https://github.com/user-attachments/assets/6f1218f8-cd44-41de-b033-4d627e2d006d" />
 
