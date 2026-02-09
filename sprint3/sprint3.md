@@ -1,6 +1,7 @@
 ### Administració de Dominis i Seguretat
 
-<img width="748" height="678" alt="image" src="https://github.com/user-attachments/assets/160b7953-2bcc-4027-8032-1b2c3bb38509" />
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/2131e7d9-ca4a-4d85-ad58-6492063f7d78" />
+
 
 ### Configuració LDAP - Servidor
 primer en servidor canviem el hostname
@@ -50,9 +51,27 @@ primer instalem samba
 <img width="796" height="501" alt="image" src="https://github.com/user-attachments/assets/b66856cd-f7b0-4d38-a718-81645f888a24" />
 
 
-Comprovem la instal·lació , 
+Comprovem la instal·lació , i despres editem el fitxer de configuració /etc/samba/smb.conf per definir el grup de treball i els recursos compartits.
+
 <img width="589" height="132" alt="image" src="https://github.com/user-attachments/assets/1c82f5e6-de91-4507-938f-5d52d9171305" />
 
 
 <img width="596" height="355" alt="image" src="https://github.com/user-attachments/assets/e21b003d-d7ac-42cb-9761-7c5837d496c2" />
+
+Definim la configuració global i els recursos compartits, assegurant els permisos adequats.
+
+<img width="595" height="329" alt="image" src="https://github.com/user-attachments/assets/dce8e1fd-5720-4402-a84a-65ae4c74512d" />
+
+<img width="596" height="326" alt="image" src="https://github.com/user-attachments/assets/2b24effd-8370-4685-958d-31b1b43e2ae7" />
+
+<img width="600" height="409" alt="image" src="https://github.com/user-attachments/assets/619f52cf-2e51-46ee-84fe-411776ed4fb9" />
+
+<img width="838" height="513" alt="image" src="https://github.com/user-attachments/assets/a480d13c-759a-4011-a223-455cddc17560" />
+
+<img width="643" height="512" alt="image" src="https://github.com/user-attachments/assets/304098e7-c25a-4379-9c78-18583a9ed15f" />
+
+<img width="851" height="469" alt="image" src="https://github.com/user-attachments/assets/6f1218f8-cd44-41de-b033-4d627e2d006d" />
+
+
+
 
