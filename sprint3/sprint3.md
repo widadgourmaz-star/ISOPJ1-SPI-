@@ -47,7 +47,8 @@ Samba és un programari lliure que permet compartir fitxers i recursos en una xa
 Samba permet gestionar usuaris, contrasenyes i permisos, i és molt utilitzat en entorns educatius i empresarials amb sistemes operatius mixtos.
 primer instalem samba 
 
-<img width="586" height="318" alt="image" src="https://github.com/user-attachments/assets/35dd778c-de56-4b53-900e-a3b3748f85de" />
+<img width="796" height="501" alt="image" src="https://github.com/user-attachments/assets/b66856cd-f7b0-4d38-a718-81645f888a24" />
+
 
 Comprovem la instal·lació , 
 <img width="589" height="132" alt="image" src="https://github.com/user-attachments/assets/1c82f5e6-de91-4507-938f-5d52d9171305" />
