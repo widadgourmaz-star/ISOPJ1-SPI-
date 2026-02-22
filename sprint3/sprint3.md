@@ -42,6 +42,41 @@ he modificat el ou.ldif
 
 <img width="768" height="688" alt="image" src="https://github.com/user-attachments/assets/73447ee5-ab13-4ff4-b427-972f39ba6cfe" />
 
+### Població i Verificació del Directori LDAP
+#### servidor
+
+primer intallem libnss-ldap libpam-ldap nscd -y i verifequem que s`hagi creat correctament
+
+<img width="720" height="471" alt="image" src="https://github.com/user-attachments/assets/31ede942-76dd-4b25-baec-3de19253ce87" />
+
+<img width="720" height="471" alt="image" src="https://github.com/user-attachments/assets/66dca740-1659-485b-a520-102d62472a66" />
+
+<img width="669" height="411" alt="image" src="https://github.com/user-attachments/assets/87e4b8c8-a1ad-49e3-81b2-2bdd216a6b13" />
+
+<img width="697" height="531" alt="image" src="https://github.com/user-attachments/assets/13254b0b-3b40-4a25-b3e7-2d94629af84e" />
+
+<img width="698" height="497" alt="image" src="https://github.com/user-attachments/assets/1c7b9f27-3e06-4b55-9c01-e6c4031bf190" />
+
+<img width="687" height="344" alt="image" src="https://github.com/user-attachments/assets/e0d4f4da-96aa-46cc-a0ff-6bc9857e456f" />
+
+<img width="675" height="353" alt="image" src="https://github.com/user-attachments/assets/7c2c12e3-0044-4406-a778-0a9994d260ff" />
+
+<img width="554" height="246" alt="image" src="https://github.com/user-attachments/assets/d580f430-9bf3-4654-a903-92d476a95ef9" />
+
+<img width="668" height="316" alt="image" src="https://github.com/user-attachments/assets/a91fd8b1-ad47-4413-a6e0-5ebe6122347f" />
+
+### Configuració de Clients i Proves d’Autenticació LDAP
+
+Un cop el servidor ja està operatiu i amb les dades carregades, el següent pas és configurar el sistema d’autenticació perquè aquest mateix servidor —o altres equips clients— puguin identificar i validar els usuaris que es troben al directori LDAP.
+Per fer aquesta integració amb els mecanismes d’autenticació del sistema (NSS i PAM), cal instal·lar els paquets corresponents: libnss-ldapd, libpam-ldapd i nscd. Aquests paquets permeten que el sistema consulti el servidor LDAP quan necessita informació d’usuaris o processos d’autenticació.
+
+
+
+
+
+
+
+
 ### Configuració Samba
 #### Què és Samba?
 
