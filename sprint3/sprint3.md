@@ -47,7 +47,6 @@ he modificat el ou.ldif
 
 primer intallem libnss-ldap libpam-ldap nscd -y i verifequem que s`hagi creat correctament
 
-<img width="720" height="471" alt="image" src="https://github.com/user-attachments/assets/31ede942-76dd-4b25-baec-3de19253ce87" />
 
 <img width="720" height="471" alt="image" src="https://github.com/user-attachments/assets/66dca740-1659-485b-a520-102d62472a66" />
 
@@ -69,6 +68,66 @@ primer intallem libnss-ldap libpam-ldap nscd -y i verifequem que s`hagi creat co
 
 Un cop el servidor ja està operatiu i amb les dades carregades, el següent pas és configurar el sistema d’autenticació perquè aquest mateix servidor —o altres equips clients— puguin identificar i validar els usuaris que es troben al directori LDAP.
 Per fer aquesta integració amb els mecanismes d’autenticació del sistema (NSS i PAM), cal instal·lar els paquets corresponents: libnss-ldapd, libpam-ldapd i nscd. Aquests paquets permeten que el sistema consulti el servidor LDAP quan necessita informació d’usuaris o processos d’autenticació.
+
+<img width="734" height="219" alt="image" src="https://github.com/user-attachments/assets/1352cb8b-45d6-4e49-b7f5-996c4b977ff4" />
+
+<img width="708" height="386" alt="image" src="https://github.com/user-attachments/assets/8d7004e0-9d9c-418b-bd6a-8849aff65a3a" />
+
+<img width="717" height="330" alt="image" src="https://github.com/user-attachments/assets/9e35484c-a2f6-41c2-a521-952750f4cd8d" />
+
+<img width="707" height="279" alt="image" src="https://github.com/user-attachments/assets/b9a642e0-4859-4602-ac66-d968b70a65bb" />
+
+<img width="704" height="314" alt="image" src="https://github.com/user-attachments/assets/b5297554-93b8-4569-80c0-c2343dad2f26" />
+
+<img width="660" height="234" alt="image" src="https://github.com/user-attachments/assets/2f813cb6-546f-4c5b-8d0e-f5b9bf960d45" />
+
+<img width="574" height="279" alt="image" src="https://github.com/user-attachments/assets/c77aa4fd-71db-4f3c-9995-8c9d32cdbde4" />
+
+<img width="690" height="263" alt="image" src="https://github.com/user-attachments/assets/f0ee6e7c-bf40-4f5d-84bf-34d53625e3e6" />
+
+<img width="704" height="425" alt="image" src="https://github.com/user-attachments/assets/c969db70-0177-4be8-8d65-a4964ed1a5ed" />
+
+<img width="730" height="431" alt="image" src="https://github.com/user-attachments/assets/695c40b7-59b4-47ac-a300-989091fa69df" />
+
+<img width="1000" height="441" alt="image" src="https://github.com/user-attachments/assets/d24b1dca-f7d8-43ac-ac5c-7363e35e40e7" />
+
+<img width="995" height="441" alt="image" src="https://github.com/user-attachments/assets/8ee8089e-5a4e-4963-af20-95b59d76ab24" />
+
+<img width="817" height="175" alt="image" src="https://github.com/user-attachments/assets/18496735-237d-44d8-8495-8f96de08dfdf" />
+
+<img width="635" height="77" alt="image" src="https://github.com/user-attachments/assets/232965da-1f57-45fa-9e17-1c3604e4d837" />
+
+<img width="336" height="63" alt="image" src="https://github.com/user-attachments/assets/faf27ef3-f27d-4a3d-8e93-7075255e2720" />
+
+### Entorn Gràfic
+Per a configurar LDAP en un entorn gràfic tenim moltes opcions com ara:
+
+- phpldapadmin
+- apache directory stdio
+- jxplorer
+- ldap account manager (LAM)
+  ### Requeriments Prèvis
+
+<img width="910" height="559" alt="image" src="https://github.com/user-attachments/assets/6cd336be-14f1-4bf2-9676-454647cc4938" />
+
+<img width="899" height="146" alt="image" src="https://github.com/user-attachments/assets/77946ccb-6123-4ff8-b094-3fd0237bc794" />
+
+<img width="1406" height="498" alt="image" src="https://github.com/user-attachments/assets/226aff1e-ca05-40d0-ba07-54587595068b" />
+
+<img width="1452" height="899" alt="image" src="https://github.com/user-attachments/assets/b0c59b21-5515-4ba7-9bd0-dc81a6b4cce1" />
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
