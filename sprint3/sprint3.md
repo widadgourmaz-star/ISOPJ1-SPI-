@@ -116,6 +116,14 @@ Per a configurar LDAP en un entorn gràfic tenim moltes opcions com ara:
 
 <img width="1452" height="899" alt="image" src="https://github.com/user-attachments/assets/b0c59b21-5515-4ba7-9bd0-dc81a6b4cce1" />
 
+<img width="1219" height="644" alt="image" src="https://github.com/user-attachments/assets/d14d1a7e-1468-416f-b5e3-3fdade0558e4" />
+
+<img width="1044" height="308" alt="image" src="https://github.com/user-attachments/assets/fa770edf-8ec7-4636-8ec7-ccad7bef39bb" />
+
+<img width="600" height="372" alt="image" src="https://github.com/user-attachments/assets/61b46382-f638-408f-98eb-d593339ec5c1" />
+
+<img width="1534" height="447" alt="image" src="https://github.com/user-attachments/assets/79ee1934-3d0e-47e7-b0d3-c0f3c77e4649" />
+
 
 
 
