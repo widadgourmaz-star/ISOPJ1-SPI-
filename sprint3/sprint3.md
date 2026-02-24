@@ -124,6 +124,36 @@ Per a configurar LDAP en un entorn gràfic tenim moltes opcions com ara:
 
 <img width="1534" height="447" alt="image" src="https://github.com/user-attachments/assets/79ee1934-3d0e-47e7-b0d3-c0f3c77e4649" />
 
+### creacio de una nova OU
+Pprimer hem d'anar a "Tools" i "OU Editor".
+
+<img width="1184" height="280" alt="image" src="https://github.com/user-attachments/assets/f37d7242-5139-4d35-90e5-6692836126da" />
+
+<img width="1205" height="410" alt="image" src="https://github.com/user-attachments/assets/2321e264-bb3b-4d64-82e6-02062172f35d" />
+
+ja tenim creada 
+
+<img width="1091" height="293" alt="image" src="https://github.com/user-attachments/assets/470b3ffb-16a1-4a21-9106-98433096cd91" />
+
+### creació d'un nou grup
+per a crear un nou grup primer hem d'anar a "Accounts" i "Groups2.
+
+<img width="1075" height="191" alt="image" src="https://github.com/user-attachments/assets/13d8352e-2182-41e6-a984-e565fb6cea00" />
+
+<img width="1651" height="334" alt="image" src="https://github.com/user-attachments/assets/6bfc4d4b-cf34-4396-89aa-5d0193b09fc8" />
+
+I aqui anirem a "New Group"
+
+<img width="1651" height="334" alt="image" src="https://github.com/user-attachments/assets/2f35de6b-801c-4254-9eaf-adcba9ab9ded" />
+
+
+<img width="1449" height="367" alt="image" src="https://github.com/user-attachments/assets/26ee6815-c080-4111-a54c-646064b41753" />
+
+
+
+
+
+
 
 
 
