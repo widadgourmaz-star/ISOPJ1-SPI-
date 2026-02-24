@@ -140,14 +140,27 @@ per a crear un nou grup primer hem d'anar a "Accounts" i "Groups2.
 
 <img width="1075" height="191" alt="image" src="https://github.com/user-attachments/assets/13d8352e-2182-41e6-a984-e565fb6cea00" />
 
-<img width="1651" height="334" alt="image" src="https://github.com/user-attachments/assets/6bfc4d4b-cf34-4396-89aa-5d0193b09fc8" />
-
 I aqui anirem a "New Group"
 
 <img width="1651" height="334" alt="image" src="https://github.com/user-attachments/assets/2f35de6b-801c-4254-9eaf-adcba9ab9ded" />
 
+Ifinalment cream el grup, amb aquest cas li fiquem un nom i un UID
 
 <img width="1449" height="367" alt="image" src="https://github.com/user-attachments/assets/26ee6815-c080-4111-a54c-646064b41753" />
+
+s'ha creat correctament 
+
+<img width="1030" height="182" alt="image" src="https://github.com/user-attachments/assets/9f7baf75-decb-4e78-9644-6a3106ee3558" />
+
+<img width="1516" height="378" alt="image" src="https://github.com/user-attachments/assets/50fa3120-7c6f-4b7d-81bf-2826779a4283" />
+
+### creació d'un nou usuari 
+primer hem d'anar "Accounts" i despres a "Users".
+
+<img width="1266" height="193" alt="image" src="https://github.com/user-attachments/assets/b4426bd9-3a63-43d0-90d3-cce7b909e6a7" />
+
+
+
 
 
 
