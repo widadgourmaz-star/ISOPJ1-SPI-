@@ -159,33 +159,326 @@ primer hem d'anar "Accounts" i despres a "Users".
 
 <img width="1266" height="193" alt="image" src="https://github.com/user-attachments/assets/b4426bd9-3a63-43d0-90d3-cce7b909e6a7" />
 
+Un cop a la pestanya d'usuaris, fem clic a "New user" per obrir el formulari de creació. A la pestanya **Personal** omplim el nom i cognoms de l'usuari. En el nostre cas: First name: `Widad`, Last name: `Gourmaz`.
 
+![Formulari Personal - creació usuari](EntornGrafic/2.png)
 
+A la pestanya **Unix** configurem el nom d'usuari (`wgourmaz`), el grup principal (`SPR3WIDAD`), el directori home (`/home/$user`) i la shell (`/bin/bash`).
 
+![Pestanya Unix - configuració usuari](EntornGrafic/3.png)
 
+Fem clic a **Set password** per establir la contrasenya de l'usuari. Introduïm la contrasenya dues vegades i confirmem amb **Ok**.
 
+![Establir contrasenya de l'usuari](EntornGrafic/4.png)
 
+Un cop guardat, apareix el missatge de confirmació: **LDAP operation successful. Account was created successfully.**
 
+![Confirmació de creació de l'usuari](EntornGrafic/5.png)
 
+Tornem a la llista d'usuaris i podem veure que l'usuari `wgourmaz` (Widad Gourmaz) apareix correctament a la llista amb UID 10000 i GID 1234.
 
+![Llista d'usuaris amb el nou usuari creat](EntornGrafic/6.png)
 
+Per verificar que l'usuari s'ha creat correctament al sistema, executem la comanda `id` com a l'usuari `wgourmaz`:
 
+```bash
+id
+```
 
+![Verificació amb la comanda id](EntornGrafic/7.png)
 
+La sortida mostra: `uid=10000(wgourmaz) gid=1234(SPR3WIDAD) grups=1234(SPR3WIDAD)`, confirmant que l'usuari existeix al domini.
 
+## Gestió del domini mitjançant comandes
 
+En aquest apartat gestionem el domini LDAP directament des de la línia de comandes, sense entorn gràfic.
 
+### Exercicis plantejats
 
+Els exercicis que hem de fer:
 
+![Llista d'exercicis de gestió del domini](Gestió del domini mitjançant comandes/1.png)
 
+### Reconfigure slapd i verificació inicial
 
+Primer reconfigurarem el servei LDAP per deixar la base de dades buida amb només el domini i l'usuari admin. Executem:
 
+```bash
+dpkg-reconfigure slapd
+slapcat
+```
 
+![dpkg-reconfigure slapd i slapcat inicial](Gestió del domini mitjançant comandes/2.png)
 
+La sortida de `slapcat` mostra que el domini `dc=widad,dc=cat` amb l'organització `widad` s'ha configurat correctament i la base de dades queda neta.
 
+### Descàrrega del fitxer de dades
 
+Descarreguem el fitxer `dades_pt10.ldif` des del servidor de l'alumnat (IP 192.168.1.140, port 8000) per tenir les dades de mostra:
 
+```bash
+wget http://192.168.1.140:8000/dades_pt10.ldif
+```
 
+![Descàrrega del fitxer dades_pt10.ldif](Gestió del domini mitjançant comandes/3.png)
+
+### Càrrega de dades amb ldapadd
+
+Un cop descarregat el fitxer, el carreguem al servidor LDAP amb la comanda `ldapadd`:
+
+```bash
+ldapadd -x -D "cn=admin,dc=widad,dc=cat" -W -f dades_pt10.ldif
+```
+
+![ldapadd carrega dades_pt10.ldif](Gestió del domini mitjançant comandes/4.png)
+
+S'han afegit les OUs `rrhh` i `departaments`, i els usuaris xavier, enric i sergi a `ou=rrhh`, i els grups informatica i administracio a `ou=departaments`.
+
+### Verificació amb slapcat
+
+Comprovem que les dades s'han carregat correctament amb `slapcat`:
+
+```bash
+slapcat
+```
+
+![slapcat - verificació de les dades carregades](Gestió del domini mitjançant comandes/5.png)
+
+### Cerques amb ldapsearch
+
+Busquem les Unitats Organitzatives (OUs) i els usuaris del domini:
+
+```bash
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(objectClass=organizationalUnit)" dn | grep "^dn:"
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(objectClass=inetOrgPerson)" dn | grep "^dn:"
+```
+
+![ldapsearch - cerques de OUs i usuaris](Gestió del domini mitjançant comandes/6.png)
+
+Trobem les OUs `ou=rrhh` i `ou=departaments`, i els usuaris xavier, enric i sergi a la OU rrhh.
+
+### Creació d'una nova OU: asix
+
+Creem l'arxiu LDIF per a la nova unitat organitzativa `asix` i l'afegim:
+
+```bash
+cat asix.ldif
+```
+
+```ldif
+dn: ou=asix,dc=widad,dc=cat
+objectClass: organizationalUnit
+ou: asix
+description: Unitat Organitzativa per al grup ASIX
+```
+
+```bash
+ldapadd -x -D "cn=admin,dc=widad,dc=cat" -W -f asix.ldif
+```
+
+![Creació OU asix](Gestió del domini mitjançant comandes/7.png)
+
+### Eliminació de l'atribut roomNumber
+
+Esborrem l'atribut `roomNumber` de l'usuari xavier:
+
+```bash
+cat delete_attrs.ldif
+```
+
+```ldif
+dn: cn=xavier,ou=rrhh,dc=widad,dc=cat
+changetype: modify
+delete: roomNumber
+```
+
+```bash
+ldapmodify -x -D "cn=admin,dc=widad,dc=cat" -W -f delete_attrs.ldif
+```
+
+![Eliminació atribut roomNumber de xavier](Gestió del domini mitjançant comandes/8.png)
+
+### Cerca de grups d'un usuari (memberUid)
+
+Cerquem en quins grups es troba l'usuari xavier com a `uniqueMember`:
+
+```bash
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(&(objectClass=posixGroup)(memberUid=xavier))" cn
+```
+
+![Cerca dels grups de xavier](Gestió del domini mitjançant comandes/9.png)
+
+L'usuari xavier pertany al grup `informatica` dins la OU departaments.
+
+### Moviment d'usuaris de People a asix
+
+Movem els usuaris xavier, enric i sergi de la OU People a la nova OU asix:
+
+```bash
+cat move_to_asix.ldif
+```
+
+```ldif
+dn: cn=xavier,ou=People,dc=widad,dc=cat
+changetype: moddn
+newrdn: cn=xavier
+deleteoldrdn: 1
+newsuperior: ou=asix,dc=widad,dc=cat
+
+dn: cn=enric,ou=People,dc=widad,dc=cat
+changetype: moddn
+newrdn: cn=enric
+deleteoldrdn: 1
+newsuperior: ou=asix,dc=widad,dc=cat
+
+dn: cn=sergi,ou=People,dc=widad,dc=cat
+changetype: moddn
+newrdn: cn=sergi
+deleteoldrdn: 1
+newsuperior: ou=asix,dc=widad,dc=cat
+```
+
+```bash
+ldapmodify -x -D "cn=admin,dc=widad,dc=cat" -W -f move_to_asix.ldif
+```
+
+![Moviment d'usuaris a la OU asix](Gestió del domini mitjançant comandes/10.png)
+
+### Cerques avançades de verificació
+
+Verifiquem les cerques per OUs i usuaris una vegada fets els canvis anteriors amb:
+
+```bash
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(objectClass=organizationalUnit)" dn
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(objectClass=inetOrgPerson)" dn
+```
+
+![Verificació cerques avançades](Gestió del domini mitjançant comandes/11.png)
+
+### Creació d'un nou usuari
+
+Creem un nou usuari amb atributs opcionals de la classe `posixAccount`:
+
+```bash
+cat new_user.ldif
+```
+
+```ldif
+dn: cn=malak,ou=asix,dc=widad,dc=cat
+objectClass: inetOrgPerson
+objectClass: posixAccount
+...
+```
+
+```bash
+ldapadd -x -D "cn=admin,dc=widad,dc=cat" -W -f new_user.ldif
+```
+
+![Creació nou usuari](Gestió del domini mitjançant comandes/12.png)
+
+### Cerques per OUs i per grups
+
+Cerques diverses per verificar l'estat del domini:
+
+```bash
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(objectClass=organizationalUnit)" dn
+ldapsearch -x -LLL -b "ou=Groups,dc=widad,dc=cat" "(objectClass=posixGroup)" cn
+```
+
+![Cerques per OUs i grups](Gestió del domini mitjançant comandes/13.png)
+
+### Cerca de tots els usuaris
+
+Cerquem tots els usuaris del domini:
+
+```bash
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(objectClass=inetOrgPerson)" dn
+```
+
+![Cerca de tots els usuaris del domini](Gestió del domini mitjançant comandes/14.png)
+
+### Creació del fitxer asix.ldif
+
+Creem el fitxer `asix.ldif` per afegir una nova OU:
+
+```bash
+cat asix.ldif
+ldapadd -x -D "cn=admin,dc=widad,dc=cat" -W -f asix.ldif
+```
+
+![Creació fitxer asix.ldif](Gestió del domini mitjançant comandes/15.png)
+
+### Eliminació d'atributs
+
+Eliminem l'atribut `roomNumber` amb el fitxer LDIF corresponent:
+
+```bash
+cat delete_attrs.ldif
+ldapmodify -x -D "cn=admin,dc=widad,dc=cat" -W -f delete_attrs.ldif
+```
+
+![Eliminació d'atributs](Gestió del domini mitjançant comandes/16.png)
+
+### Cerca filtrada per grup
+
+Cerquem usuaris filtrats pel grup on pertanyen com a `memberUid`:
+
+```bash
+ldapsearch -x -LLL -b "dc=widad,dc=cat" "(&(objectClass=posixGroup)(memberUid=xavier))" cn
+```
+
+![Cerca filtrada per grup](Gestió del domini mitjançant comandes/17.png)
+
+### Moviment d'usuaris al fitxer asix.ldif
+
+Creem el fitxer per moure els usuaris i l'executem:
+
+```bash
+cat move_to_asix.ldif
+ldapmodify -x -D "cn=admin,dc=widad,dc=cat" -W -f move_to_asix.ldif
+```
+
+![Moviment d'usuaris al fitxer asix.ldif](Gestió del domini mitjançant comandes/18.png)
+
+### Reconfigure final
+
+Executem `dpkg-reconfigure slapd` per reconfigura el servei:
+
+```bash
+dpkg-reconfigure slapd
+```
+
+![Reconfigure final](Gestió del domini mitjançant comandes/19.png)
+
+### Descàrrega final del fitxer de dades
+
+Tornem a descarregar el fitxer `dades_pt10.ldif`:
+
+```bash
+wget http://192.168.1.140:8000/dades_pt10.ldif
+```
+
+![Descàrrega final dades_pt10.ldif](Gestió del domini mitjançant comandes/20.png)
+
+### Càrrega final de dades
+
+Tornem a carregar les dades al servidor LDAP:
+
+```bash
+ldapadd -x -D "cn=admin,dc=widad,dc=cat" -W -f dades_pt10.ldif
+```
+
+![Càrrega final de dades](Gestió del domini mitjançant comandes/21.png)
+
+### Verificació final
+
+Comprovem l'estat final del domini amb `slapcat` i `ldapsearch`:
+
+```bash
+slapcat
+```
+
+![Verificació final del domini](Gestió del domini mitjançant comandes/22.png)
 
 ### Configuració Samba
 #### Què és Samba?
@@ -220,6 +513,8 @@ Definim la configuració global i els recursos compartits, assegurant els permis
 
 
 <img width="643" height="512" alt="image" src="https://github.com/user-attachments/assets/304098e7-c25a-4379-9c78-18583a9ed15f" />
+
+
 
 
 <img width="851" height="469" alt="image" src="https://github.com/user-attachments/assets/6f1218f8-cd44-41de-b033-4d627e2d006d" />
