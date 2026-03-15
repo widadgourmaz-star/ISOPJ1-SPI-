@@ -12,8 +12,8 @@ El contenido está bajo licencia [Creative Commons BY-NC-SA 4.0 ES](LICENSE.md).
 ## Contenido del curso
 ### [Sprint 1: Instal·lació, Configuració Inicial i Programari de Base ]()
 ### [Sprint 2: Instal·lació, Configuració de Programari de Base i Gestió de Fitxers](sprint2/sprint2.md)
-### [Sprint 3: Administració de Dominis i Seguretat ]()
-### [Sprint 4: Configuració del Programari de Base i Sistemes d’Emmagatzematge en Ubuntu ]()
-### [Sprint 5: Monitoratge, Auditories i Programari Client/Servidor]()
+### [Sprint 3: Administració de Dominis i Seguretat ](sprint3/sprint3.md)
+### [Sprint 4: Configuració del Programari de Base i Sistemes d’Emmagatzematge en Ubuntu ](sprint4/sprint4.md)
+### [Sprint 5: Monitoratge, Auditories i Programari Client/Servidor](sprint5/sprint5.md)
 
   
